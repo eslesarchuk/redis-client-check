@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  redis3:
+    image: "redis:3.2.10"
+  redis4:
+    image: "redis:4.0.10"
+  redis5:
+    image: "redis:5.0.6"
+  redis6:
+    image: "redis:6.0"
+  redis62:
+    image: "redis:6.2"
+  redis7:
+    image: "redis:7.0"
+  test:
+    build: .
+    volumes:
+       - ./:/app
+    depends_on:
+      - redis3
+      - redis4
+      - redis5
+      - redis6
+      - redis62
+      - redis7
